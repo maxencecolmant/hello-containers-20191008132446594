@@ -3,7 +3,7 @@
 replicaCount: 1
 revisionHistoryLimit: 1
 image:
-  repository: maxencecolmant/goapi
+  repository: maxencecolmant/cronikspy
   tag: latest
   pullPolicy: IfNotPresent
   resources:
