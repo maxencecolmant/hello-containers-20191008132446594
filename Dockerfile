@@ -1,9 +1,8 @@
-FROM python:3.8.0b4-buster
-
+FROM python:3-slim AS build-env
+ADD . /app
 WORKDIR /app
 
-COPY . /app
-
-ENTRYPOINT [ "python" ]
-
-CMD [ "app.py" ]
+FROM gcr.io/distroless/python3
+COPY --from=build-env /app /app
+WORKDIR /app
+CMD ["app", "/etc"]

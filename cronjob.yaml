@@ -1,0 +1,14 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: crontab-who-say-hello
+spec:
+  schedule: "*/15 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: croncontainer
+            image: maxencecolmant/cronikspy/iks
+          restartPolicy: OnFailure
